@@ -41,26 +41,53 @@ FIGURE-04
 A Parallel in Parallel out (PIPO) shift register is used as a temporary storage device and like SISO Shift register it acts as a delay element.
 
 ### Procedure
-/* write all the steps invloved */
-
-
+      Compile and run the verilog program in the quartus software.
+     Realize the RTL logic for the same.
+     Create a new university program vwf and import nodes using node finder.
+     Run functional simulation to obtain the timing diagram. 
 
 ### PROGRAM 
-/*
-Program for  Implementation-of Shift-registers-using-verilog-
-Developed by: 
-RegisterNumber:  
-*/
+      /*
+     Program for  Implementation-of Shift-registers-using-verilog-
+     Developed by: Preethi M
+     RegisterNumber: 22000091 
+     */module 
+     ShiftRegister(R, L, w, Clock, Q);
+     
+     input [3:0] R;
 
+     input L, w, Clock;
 
+     output [3:0] Q;
 
+     reg [3:0] Q;
 
+     always @(posedge Clock)
+ 
+     if (L)
 
+     Q <= R;
+
+     else
+
+     begin
+
+     Q[0] <= Q[1];
+
+     Q[1] <= Q[2];
+
+     Q[2] <= Q[3];
+
+     Q[3] <= w;
+
+     end
+
+     endmodule
 
 ### RTL LOGIC  REGISTERS   
 
 
-
+![images](ShiftRegisterRTL.png)
 
 
 
@@ -69,11 +96,8 @@ RegisterNumber:
 
 ### TIMING DIGRAMS FOR SHIFT REGISTERS
 
-
-
-
-
-
-
+![images](https://sub.allaboutcircuits.com/images/quiz/02987x03.png)
 
 ### RESULTS 
+      
+      Thus, the shift register is implemented using verilog.
